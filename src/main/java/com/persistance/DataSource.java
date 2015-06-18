@@ -4,6 +4,8 @@ package com.persistance;
  * Created by MalindaK on 6/17/2015.
  */
 
+import com.entity.Vehicle;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -23,6 +25,9 @@ public class DataSource {
 
         System.out.println("-------- Oracle JDBC Connection Testing ------");
         getInstance().getVehicles();
+        Vehicle v= new Vehicle();
+        v.setREGNO("sdfsdfsyy");
+        getInstance().addVehicle(v);
 
     }
 
@@ -70,16 +75,14 @@ public class DataSource {
         return list;
     }
 
-    public static void addVehicle(){
+    public static void addVehicle(Vehicle vehicle){
         Statement stmt = null;
-        String query = "INSERT INTO VEHICLE SET REGNO FROM VEHICLE";
+        String query = "INSERT INTO VEHICLE VALUES ('"+vehicle.getREGNO()+"','"+vehicle.getPHONE()+"','"+vehicle.getEMAIL()+"','"+vehicle.getMAKE()+"','"+vehicle.getMODEL()+"','"+vehicle.getTYPE()+"','"+vehicle.getOWNER()+"','"+vehicle.getDESCRIPTION()+"',"+vehicle.getACCOST()+","+vehicle.getNONACCOST()+","+vehicle.getSEATS()+")";
         try {
             stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
-            while (rs.next()) {
-                String coffeeName = rs.getString("REGNO");
-                System.out.println(coffeeName);
-            }
+            stmt.executeQuery(query);
+
+
         } catch (Exception e ) {
             e.printStackTrace();
         }

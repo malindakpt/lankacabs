@@ -6,6 +6,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />
   </component>
+  <component name="IdProvider" IDEtalkID="4B7FC50635F93BD7125B8C7A224FBB0C" />
   <component name="IvyIDEA.ProjectSettings">
     <option name="artifactTypeSettings">
       <ArtifactTypeSettings />
@@ -44,3 +45,4 @@
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
+
